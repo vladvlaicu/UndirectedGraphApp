@@ -7,12 +7,12 @@ package utils;
 
 import java.util.ArrayList;
 import java.util.List;
-
 /**
  *
  * @author elev
  */
 public class Utilitis {
+
     public static List<Integer> getIntEqualsList(int[] v, int length, int value) {
         List<Integer> result = new ArrayList<Integer>();
         for(int i = 1 ; i <= length; i++) {

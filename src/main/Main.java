@@ -5,11 +5,14 @@
  */
 package main;
 
+
+import view.MenuFrame;
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import models.UndirectedGraph;
+
 
 
 /**
@@ -22,6 +25,8 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        MenuFrame menuFrame = new MenuFrame();
+
         UndirectedGraph graph = UndirectedGraph.getInitGraph();
         System.out.println(graph);
 //        byte[][] matrix = graph.getAdjacencyMatrix();

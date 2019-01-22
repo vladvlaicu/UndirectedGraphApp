@@ -25,19 +25,14 @@ public class UndirectedGraph {
     private int[] nodesGrades;
     private int[][] chainMatrix;
     
-   public UndirectedGraph(){
+    public UndirectedGraph(){
    
-   }
-    
-
-   public UndirectedGraph(){
-   
-   }
+    }
   
     public static UndirectedGraph getInitGraph(){
         return initGraph();
     }
-
+  
     public int getNumEdges() {
         return numEdges;
     }
@@ -67,12 +62,12 @@ public class UndirectedGraph {
         Path pathNumNode = Paths.get("./GraphData/GraphDataNrNodes.txt");
         UndirectedGraph graph = new UndirectedGraph();
         try {
-            int  nrNodes = Integer.parseInt(Files.readAllLines(pathNumNode).get(0));
-            graph.setNumNodes(nrNodes);
+            int  numNodes = Integer.parseInt(Files.readAllLines(pathNumNode).get(0));
+            graph.setNumNodes(numNodes);
             initEdges(pathEdge);
-            int nrEdges =(int) Files.lines(pathEdge)
+            int numEdges =(int) Files.lines(pathEdge)
                                .count();
-            graph.setNumEdges(nrEdges);
+            graph.setNumEdges(numEdges);
             graph.setEdgesList(UndirectedGraph.initEdges(pathEdge));
         } catch (IOException | IndexOutOfBoundsException ex) {
             ex.printStackTrace();
