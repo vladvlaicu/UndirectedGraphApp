@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.nio.file.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.Graph;
+import models.UndirectedGraph;
 
 
 /**
@@ -22,7 +22,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Graph graph = Graph.getInitGraph();
+        UndirectedGraph graph = UndirectedGraph.getInitGraph();
         System.out.println(graph);
         
         

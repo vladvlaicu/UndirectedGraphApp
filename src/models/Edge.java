@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package models;
 
 /**
  *
@@ -11,8 +11,8 @@ package model;
  */
 public class Edge {
     public int x, y;
-    
-    public Edge(int x, int y){
+
+    public Edge(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -21,4 +21,5 @@ public class Edge {
     public String toString(){
         return " "+x+" "+y+" ";
     }
+    
 }
