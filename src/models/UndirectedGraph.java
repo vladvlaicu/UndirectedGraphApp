@@ -29,6 +29,11 @@ public class UndirectedGraph {
    
    }
     
+
+   public UndirectedGraph(){
+   
+   }
+  
     public static UndirectedGraph getInitGraph(){
         return initGraph();
     }
@@ -80,7 +85,6 @@ public class UndirectedGraph {
                                 .map(s -> toEdge(s))
                                 .collect(Collectors.toList());
         return edgesList;
-                                
     }
     
     private static Edge toEdge(String line){
