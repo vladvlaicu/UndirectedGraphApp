@@ -5,17 +5,44 @@
  */
 package view;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.List;
+import javax.swing.DefaultListModel;
+import service.ViewServices;
+
 /**
  *
  * @author elev
  */
 public class MenuFrame extends javax.swing.JFrame {
-
+        DefaultListModel listModel; 
+    
+    
     public MenuFrame() {
         initComponents();
+        
+        listModel = new DefaultListModel();
+        jList1.setModel(listModel);
+        initJList1();
+        
+        jList1.addMouseListener(new MouseAdapter(){
+            @Override
+            public void mouseClicked(MouseEvent ev){
+                if(ev.getClickCount()==2){
+                    String command = jList1.getSelectedValue();
+                    int commandProcessed = ViewServices.processCommand(command); 
+                    System.out.println(commandProcessed);
+                }
+            }
+        
+        });
+        
+        
         setVisible(true);
-        setLocation(null);
-
+        setLocationRelativeTo(null);
+        setSize(720,480);
+        setResizable(false);
         
     }
 
@@ -28,17 +55,28 @@ public class MenuFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jMenuBar1 = new javax.swing.JMenuBar();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jScrollPane1.setViewportView(jList1);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 792, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 589, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 607, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)
         );
 
         pack();
@@ -47,5 +85,15 @@ public class MenuFrame extends javax.swing.JFrame {
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+    private void initJList1() {
+        List<String> list = ViewServices.getDemands();
+        list.forEach(listModel::addElement);
+    }
+
+   
 }

@@ -5,11 +5,7 @@
  */
 package main;
 
-import java.io.IOException;
-import java.nio.file.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import models.UndirectedGraph;
+import view.MenuFrame;
 
 
 /**
@@ -22,8 +18,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        UndirectedGraph graph = UndirectedGraph.getInitGraph();
-        System.out.println(graph);
+        MenuFrame menuFrame = new MenuFrame();
         
         
     }
