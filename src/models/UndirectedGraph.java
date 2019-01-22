@@ -11,6 +11,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import utils.Constants;
+import utils.Utilitis;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,6 +26,7 @@ public class UndirectedGraph {
     private List<Edge> edgesList = Arrays.asList();
     private byte[][] adjacencyMatrix;
     private int[] nodesGrades;
+    private int[][] chainMatrix;
     
    public UndirectedGraph(){
    
@@ -126,8 +128,61 @@ public class UndirectedGraph {
     }
     
     public int[] GetNodesWithMaxGrade() {
-        int[] nodes = new int[Constants.NUM_MAX_NODES];
-        return nodes;
+        return Utilitis.GetIntEqualsList(
+                nodesGrades, 
+                Utilitis.GetMaxValueFromIntList(nodesGrades)
+        );
+    }
+   
+    public int[] GetIsolatedNodes() {
+        return Utilitis.GetIntEqualsList(nodesGrades, 1);
+    }
+    
+    public void GenerateChainMatrix() {
+        this.chainMatrix = new int[Constants.NUM_MAX_NODES][Constants.NUM_MAX_NODES];
+        for(int k = 1; k <= this.numNodes; k++) {
+            for(int i = 1; i <= this.numNodes; i++) {
+                if(this.adjacencyMatrix[i][k] == 1) {
+                    for(int j = 1; j <= this.numNodes; j++) {
+                        if(this.adjacencyMatrix[k][j] == 1) {
+                            this.chainMatrix[i][j] = 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    public int[] GetChainBetweenTwoNodes(int x, int y ){
+        int[] chain = new int[Constants.NUM_MAX_NODES];
+        int[] fathers = new int[Constants.NUM_MAX_NODES];
+        int[] used = new int[Constants.NUM_MAX_NODES];
+        if(this.adjacencyMatrix == null) {
+            SetAdjacencyMatrix();
+        }
+        used[x] = 1;
+        for(int i = 1; i <= this.numNodes; i++) {
+            if(this.adjacencyMatrix[i][x] == 1) {
+                fathers[i] = x;
+            }
+        }
+        while(fathers[y] == 0) {
+            for(int i = 1 ; i <= this.numNodes; i++)
+                if(used[i] == 0 && fathers[i] != 0)
+                {
+                    used[i] = 1;
+                    for(int j = 1; j <= this.numNodes; j++)
+                        if(this.adjacencyMatrix[i][j] == 1) {
+                            fathers[j] = i;
+                        }
+                }
+        }
+        int node = y;
+        while(node != 0) {
+            chain[chain.length] = node;
+            node = fathers[node];
+        }
+        return chain;
     }
     
     public int[] GetAdjacentNodesForNode(int node) {
