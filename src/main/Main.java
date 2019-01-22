@@ -5,6 +5,13 @@
  */
 package main;
 
+import java.io.IOException;
+import java.nio.file.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import model.Graph;
+
+
 /**
  *
  * @author elev
@@ -15,7 +22,10 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Graph graph = Graph.getInitGraph();
+        System.out.println(graph);
+        
+        
     }
     
 }
