@@ -5,25 +5,28 @@
  */
 package utils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author elev
  */
 public class Utilitis {
-    public static int[] GetIntEqualsList(int[] v, int value) {
-        int[] result = new int[Constants.NUM_MAX_NODES];
-        for(int i = 0 ; i < v.length; i++) {
+    public static List<Integer> getIntEqualsList(int[] v, int length, int value) {
+        List<Integer> result = new ArrayList<Integer>();
+        for(int i = 1 ; i <= length; i++) {
             if(v[i] == value) {
-                result[result.length] = i;
+                result.add(i);
             }
         }
         return result;
     }
     
-    public static int GetMaxValueFromIntList(int[] v) {
+    public static int getMaxValueFromIntList(int[] v, int length) {
         int maxValue = 0;
-        for(int i = 0 ; i < v.length; i++) {
-            if(maxValue > v[i]) {
+        for(int i = 1 ; i <= length; i++) {
+            if(maxValue < v[i]) {
                 maxValue = v[i];
             }
         }
