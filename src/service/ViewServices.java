@@ -32,6 +32,6 @@ public class ViewServices {
     }
 
     public static int processCommand(String command) {
-      return 0;
+      return Integer.parseInt(command.substring(0, 2).trim()) ;
     }
 }

@@ -57,7 +57,7 @@ public class UndirectedGraph {
         this.edgesList = edgesList;
     }
     
-    public static UndirectedGraph initGraph(){
+    private static UndirectedGraph initGraph(){
         Path pathEdge = Paths.get("./GraphData/GraphDataEdges.txt");
         Path pathNumNode = Paths.get("./GraphData/GraphDataNrNodes.txt");
         UndirectedGraph graph = new UndirectedGraph();
@@ -93,7 +93,7 @@ public class UndirectedGraph {
         return string;
     }
     
-    public void generateAdjacencyMatrix() {
+    private void generateAdjacencyMatrix() {
         this.adjacencyMatrix = new byte[Constants.NUM_MAX_NODES][Constants.NUM_MAX_NODES];
         for(Edge edge : this.edgesList) {
             this.adjacencyMatrix[edge.x][edge.y] = 1;
@@ -108,7 +108,7 @@ public class UndirectedGraph {
         return adjacencyMatrix;   
     }
     
-    public void generateNodesGrades() {
+    private void generateNodesGrades() {
         this.nodesGrades = new int[Constants.NUM_MAX_NODES];
         if(this.adjacencyMatrix == null) {
             generateAdjacencyMatrix();

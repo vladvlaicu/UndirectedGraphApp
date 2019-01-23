@@ -1,12 +1,12 @@
-1) sa se afiseze matricea de adiacente 
-2) sa se determine gradul unui nod citit 
-3) sa se afiseze pentru un nod citit nodurile adiacente 
-4) sa se afiseze nodurile incidente cu cea de a x-a muchie din matrice 
-5) sa se afiseze pentru fiecare nod gradul 
-6) sa se afiseze nodul (nodurile) avand cei mai multi vecini 
-7) sa se afiseze nodurile izolate 
-8) citeste doua noduri x si y , apoi afiseara un lant de la x la y 
-9) citeste un nod x si afiseaza toate nodurile legate printr-un lant de x 
+1 ) sa se afiseze matricea de adiacente 
+2 ) sa se determine gradul unui nod citit 
+3 ) sa se afiseze pentru un nod citit nodurile adiacente 
+4 ) sa se afiseze nodurile incidente cu cea de a x-a muchie din matrice 
+5 ) sa se afiseze pentru fiecare nod gradul 
+6 ) sa se afiseze nodul (nodurile) avand cei mai multi vecini 
+7 ) sa se afiseze nodurile izolate 
+8 ) citeste doua noduri x si y , apoi afiseara un lant de la x la y 
+9 ) citeste un nod x si afiseaza toate nodurile legate printr-un lant de x 
 10) verifica daca are cicluri 
 11) afiseaza toate ciclurile elementare de lungime 4 
 12) Parcurgere DFS 

@@ -9,6 +9,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
 import javax.swing.DefaultListModel;
+import models.UndirectedGraph;
 import service.ViewServices;
 
 /**
@@ -33,6 +34,7 @@ public class MenuFrame extends javax.swing.JFrame {
                     String command = jList1.getSelectedValue();
                     int commandProcessed = ViewServices.processCommand(command); 
                     System.out.println(commandProcessed);
+                    executeCommand(commandProcessed);
                 }
             }
         
@@ -93,6 +95,17 @@ public class MenuFrame extends javax.swing.JFrame {
     private void initJList1() {
         List<String> list = ViewServices.getDemands();
         list.forEach(listModel::addElement);
+    }
+    
+    private void executeCommand(int command){
+        switch(command){
+            case 1: 
+                UndirectedGraph uGraph = UndirectedGraph.getInitGraph();
+                AdjacencyMatrixFrame amf = new AdjacencyMatrixFrame();
+                break;
+            default:System.out.println(0);
+        }
+            
     }
 
    
